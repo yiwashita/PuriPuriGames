@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #fff;
+}
+
+header {
+  background: linear-gradient(90deg, #1f1f1f, #2c2c2c);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+header h1 {
+  font-size: 1.8em;
+  color: #00ffe1;
+  letter-spacing: 2px;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #00ffe1;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 661px;
+  background-image: url('https://images.unsplash.com/photo-1600965962945-ea404c9dedd0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.hero p {
+  font-size: 1.2em;
+  color: #ddd;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 12px 30px;
+  background-color: #00ffe1;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #00ccb0;
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  background-color: #1f1f1f;
+  color: #777;
+}
