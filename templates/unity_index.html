@@ -2,13 +2,14 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity Web Player | block</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
+    <title>PuriPuriGames - BrockDestroy</title>
+    <!-- <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css"> -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
   </head>
 
   <body>
@@ -25,7 +26,10 @@
 
     <div id="unity-container" class="unity-desktop">
 
-      <canvas id="unity-canvas" width=1920px height=1080px tabindex="-1"></canvas>
+      <!-- unityの画面サイズ（scriptタグ内で指定） -->
+      <!-- <canvas id="unity-canvas" width=1920px height=1080px tabindex="-1"></canvas> -->
+      <!-- <canvas id="unity-canvas" width=800px height=450px tabindex="-1"></canvas> -->
+      <canvas id="unity-canvas" tabindex="-1"></canvas>
 
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
@@ -117,7 +121,7 @@
       } else {
         // デスクトップ スタイル: ゲーム キャンバスを、フルスクリーンに最大化できるウィンドウにレンダリングします。
         canvas.style.width = "1920px";
-        canvas.style.height = "1080px";
+        canvas.style.height = "700px";
       }
 
       document.querySelector("#unity-loading-bar").style.display = "block";
@@ -133,7 +137,7 @@
                   unityInstance.SetFullscreen(1);
                 };
 
-              }).catch((message) => {
+              }).catch((message) => { 
                 alert(message);
               });
             };
@@ -141,6 +145,10 @@
       document.body.appendChild(script);
 
     </script>
-    
+
+    <footer>
+      &copy; 2025 PuriPuriGames - All Rights Reserved
+    </footer>
+
   </body>
 </html>
