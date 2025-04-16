@@ -5,7 +5,6 @@ from . import views
 urlpatterns = [
     path('', views.myprojectfunction), # トップページ
     path('recipe/', views.recipe), # レシピページ
-    path('BrockDestroy/', views.BrockDestroy), # BrockDestroyページ
+    path('BlockDestroy/', views.unity_index), # BrockDestroyページ
 
-    path('unity/', views.unity_index),
 ]

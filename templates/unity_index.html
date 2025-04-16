@@ -7,8 +7,8 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>PuriPuriGames - BrockDestroy</title>
-    <!-- <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css"> -->
+    <link rel="shortcut icon" href="../static/unity/Build/TemplateData/favicon.ico">
+    <link rel="stylesheet" href="../static/unity/Build/TemplateData/style.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
   </head>
 
@@ -28,7 +28,7 @@
 
       <!-- unityの画面サイズ（scriptタグ内で指定） -->
       <!-- <canvas id="unity-canvas" width=1920px height=1080px tabindex="-1"></canvas> -->
-      <!-- <canvas id="unity-canvas" width=800px height=450px tabindex="-1"></canvas> -->
+      <!-- <canvas id="unity-canvas" style="width: 100%; height: auto" tabindex="-1"></canvas> -->
       <canvas id="unity-canvas" tabindex="-1"></canvas>
 
       <div id="unity-loading-bar">
@@ -105,7 +105,7 @@
       // 現在はデフォルトの動作ではありません。ただし、Unity の将来のバージョンでは、この動作は変更される予定です。
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
+        // モバイル デバイス スタイル: ブラウザークライアント領域全体をゲームキャンバスで埋め尽くします。
 
         var meta = document.createElement('meta');
         meta.name = 'viewport';
@@ -126,22 +126,35 @@
 
       document.querySelector("#unity-loading-bar").style.display = "block";
 
+      // Unityのローダースクリプトを動的に生成
       var script = document.createElement("script");
+      // ローダースクリプトのパスを指定（configとcanvasが事前に定義されてる前提）
       script.src = loaderUrl;
+      // スクリプトが読み込まれたら実行される関数
       script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
-              }).then((unityInstance) => {
-                document.querySelector("#unity-loading-bar").style.display = "none";
-                document.querySelector("#unity-fullscreen-button").onclick = () => {
-                  unityInstance.SetFullscreen(1);
-                };
 
-              }).catch((message) => { 
-                alert(message);
-              });
+        // Unityインスタンスを作成（canvas要素と設定(config)を渡す）
+        createUnityInstance(canvas, config, (progress) => {
+
+          // ゲームのロード進捗に応じてプログレスバーを更新
+          document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
+
+          }).then((unityInstance) => {
+            // 読み込みが完了したらローディングバーを非表示にする
+            document.querySelector("#unity-loading-bar").style.display = "none";
+            // フルスクリーンボタンが押された時の挙動を定義
+            document.querySelector("#unity-fullscreen-button").onclick = () => {
+              // UnityのAPIでフルスクリーンに切り替え
+              unityInstance.SetFullscreen(1);
             };
 
+          }).catch((message) => {
+            // エラーが発生したらアラートで表示（主に読み込み失敗）
+            alert(message);
+          });
+      };
+
+      // 作成した <script> を <body> の最後に追加 → 読み込み開始
       document.body.appendChild(script);
 
     </script>

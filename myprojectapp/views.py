@@ -8,8 +8,5 @@ def myprojectfunction(request):
 def recipe(request):
     return render(request, 'recipe.html')
 
-def BrockDestroy(request):
-    return render(request, 'BrockDestroy.html')
-
 def unity_index(request):
     return render(request, 'unity_index.html')
