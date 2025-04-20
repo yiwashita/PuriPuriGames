@@ -8,3 +8,5 @@
 # /bin/
 
 server.log
+db.sqlite3
+myprojectapp/__pycache__/

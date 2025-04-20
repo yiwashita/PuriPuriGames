@@ -16,10 +16,11 @@ header {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
 
-header h1 {
-  font-size: 1.8em;
+header h1 a {
+  font-size: 32px;
   color: #00ffe1;
   letter-spacing: 2px;
+  text-decoration: none;
 }
 
 nav a {
