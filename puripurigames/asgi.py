@@ -1,5 +1,5 @@
 """
-ASGI config for myproject project.
+ASGI config for puripurigames project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
