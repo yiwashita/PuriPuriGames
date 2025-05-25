@@ -9,4 +9,5 @@
 
 server.log
 db.sqlite3
-myprojectapp/__pycache__/
+puripurigamesapp/__pycache__/
+puripurigames/__pycache__/
