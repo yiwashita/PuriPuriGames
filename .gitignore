@@ -11,3 +11,7 @@ server.log
 db.sqlite3
 puripurigamesapp/__pycache__/
 puripurigames/__pycache__/
+.venv/lib/python3.12/site-packages/django/core/management/__pycache__/
+
+# Nginx用の静的ファイルのキャッシュファイルを無視する
+staticfiles/

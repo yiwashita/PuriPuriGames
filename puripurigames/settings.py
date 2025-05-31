@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-+_6on)kks((b5tj@3h@-w_$)0pp)8d4-uf_@o!e=n8stz8wy_-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# 一時的に許可（セキュリティ上*は良くない、本番環境はパブリックIPを設定する）
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -129,7 +130,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+# 静的ファイルのURL
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = (
     [
