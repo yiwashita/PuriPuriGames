@@ -7,11 +7,16 @@
 # 特定のディレクトリを無視する場合は先頭と末尾に/を付ける
 # /bin/
 
+.venv/
 server.log
 db.sqlite3
-puripurigamesapp/__pycache__/
+
 puripurigames/__pycache__/
-.venv/
+
+puripurigamesapp/__pycache__/
+puripurigamesapp/migrations/__pycache__/
+
+
 
 # Nginx用の静的ファイルのキャッシュファイルを無視する
 staticfiles/
