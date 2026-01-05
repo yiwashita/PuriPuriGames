@@ -1,0 +1,35 @@
+<!-- どのテンプレートを継承元とするか -->
+{% extends 'ppgapp/base.html' %}
+
+<!-- ブラウザのタブに表示される文字列 -->
+{% block title %}記事一覧 - PuriPuriGames{% endblock %}
+
+<!-- 上書きしたいブロックの内容 -->
+{% block content %}
+    <div class="page-header">
+        <h2>ブログ記事一覧</h2>
+        <p class="post-count">
+            {% if posts %}
+                全{{ posts|length }}件の記事
+            {% endif %}
+        </p>
+    </div>
+
+    {% for post in posts %}
+    <!-- アイテムがある場合 -->
+
+        <!-- includeで部品テンプレートを読み込むとき、withを使って変数を渡せます： -->
+        <!-- is_new=forloop.first：最初の記事かどうか -->
+        <!-- number=forloop.counter：記事の番号 -->
+
+        {% include 'ppgapp/post_card.html' with is_new=forloop.first number=forloop.counter %}
+
+    <!-- アイテムがない場合 -->
+    {% empty %}
+        <div class="no-posts">
+            <p>まだ記事がありません。</p>
+            <p>最初の記事を書いてみましょう！</p>
+        </div>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,65 @@
+<!-- static タグを使えるようにする（ファイルの最初に 1 回だけ） -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ページのタイトル（デフォルト値を設定することが多い） -->
+    <title>{% block title %}PuriPuriGames{% endblock %}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'ppgapp/images/favicon.ico' %}">
+
+    <!-- 静的ファイルの読み込み URL を生成 -->
+    <link rel="stylesheet" href="{% static 'ppgapp/css/style.css' %}">
+
+    <!-- ページ固有の CSS（通常デフォルト値なし） -->
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+    <!-- 共通ヘッダー -->
+    <header>
+        <nav>
+            <h1><a href="{% url 'post_list' %}">PuriPuriBlog</a></h1>
+            <ul>
+                <li><a href="{% url 'post_list' %}">ホーム</a></li>
+                <li><a href="#">記事一覧</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- メインコンテンツ（通常デフォルト値なし） -->
+    <main>
+        <div class="container">
+            <div class="content">
+                {% block content %}
+                <!-- ここに各ページの内容が入ります -->
+                {% endblock %}
+            </div>
+
+            <!-- サイドバー -->
+            <aside class="sidebar">
+                {% block sidebar %}
+                    {% include 'ppgapp/sidebar.html' %}
+                {% endblock %}
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <p>Copyright © 2026 PuriPuriGames All rights reserved.</p>
+    </footer>
+
+    <!-- 共通JavaScriptの読み込み -->
+    <script src="{% static 'ppgapp/js/main.js' %}"></script>
+
+    <!-- ページ固有の JavaScript（通常デフォルト値なし） -->
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

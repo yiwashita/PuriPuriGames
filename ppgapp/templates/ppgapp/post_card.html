@@ -1,0 +1,27 @@
+
+<!-- includeで部品テンプレートを読み込むとき、withを使って変数を渡せます -->
+<!-- is_new=forloop.first：最初の記事かどうか -->
+<!-- number=forloop.counter：記事の番号 -->
+
+<article class="post">
+    <div class="post-header">
+        <h3>
+            <span class="post-number">#{{ number }}</span>
+            {{ post.title }}
+        </h3>
+        {% if is_new %}
+            <span class="new-badge">NEW!</span>
+        {% endif %}
+    </div>
+
+    <p class="post-date">投稿日: {{ post.created_at }}</p>
+
+    <div class="post-content">
+        <!-- 文字数制限 -->
+        {{ post.content|truncatechars:150 }}
+    </div>
+
+    <a href="{% url 'post_detail' post_id=post.id %}" class="read-more">
+        続きを読む →
+    </a>
+</article>

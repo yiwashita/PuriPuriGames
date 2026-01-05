@@ -11,11 +11,12 @@
 server.log
 db.sqlite3
 
-puripurigames/__pycache__/
+ppg/__pycache__/
 
-puripurigamesapp/__pycache__/
-puripurigamesapp/migrations/__pycache__/
+ppgapp/__pycache__/
+ppgapp/migrations/__pycache__/
 
+/ppgapp/migrations/__pycache__
 
 
 # Nginx用の静的ファイルのキャッシュファイルを無視する
